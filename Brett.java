@@ -1,33 +1,17 @@
-
-/**
- * Beschreiben Sie hier die Klasse Brett.
- * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
- */
+import java.util.LinkedList;
 public class Brett
 {
-    // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
-    private int x;
-
-    /**
-     * Konstruktor für Objekte der Klasse Brett
-     */
-    public Brett()
+    private LinkedList Liste;
+    private int laenge = 40;
+    public void Brett()
     {
-        // Instanzvariable initialisieren
-        x = 0;
+        Liste = new LinkedList();
+         
+        int i=0;
+        for(i=0;i<laenge;i++)
+        {
+             Liste.add(new Feld(i));
+        }
     }
-
-    /**
-     * Ein Beispiel einer Methode - ersetzen Sie diesen Kommentar mit Ihrem eigenen
-     * 
-     * @param  y    ein Beispielparameter für eine Methode
-     * @return        die Summe aus x und y
-     */
-    public int beispielMethode(int y)
-    {
-        // tragen Sie hier den Code ein
-        return x + y;
-    }
+    
 }
