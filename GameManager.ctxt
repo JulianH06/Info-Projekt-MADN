@@ -1,7 +1,3 @@
 #BlueJ class context
 comment0.target=GameManager
-comment1.params=
-comment1.target=GameManager()
-comment2.params=
-comment2.target=int\ Wuerfeln()
-numComments=3
+numComments=1
