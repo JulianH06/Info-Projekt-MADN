@@ -1,3 +1,7 @@
 #BlueJ class context
 comment0.target=Wuerfel
-numComments=1
+comment1.params=
+comment1.target=int\ wuerfeln()
+comment2.params=
+comment2.target=boolean\ startwurfeln()
+numComments=3
