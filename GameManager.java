@@ -1,4 +1,4 @@
 public class GameManager
 {
-    //hallo julian
+    //tschuess julian
 }
