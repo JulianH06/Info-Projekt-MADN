@@ -1,33 +1,7 @@
-
-/**
- * Beschreiben Sie hier die Klasse Feld.
- * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
- */
 public class Feld
 {
-    // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
-    private int x;
-
-    /**
-     * Konstruktor für Objekte der Klasse Feld
-     */
-    public Feld()
-    {
-        // Instanzvariable initialisieren
-        x = 0;
-    }
-
-    /**
-     * Ein Beispiel einer Methode - ersetzen Sie diesen Kommentar mit Ihrem eigenen
-     * 
-     * @param  y    ein Beispielparameter für eine Methode
-     * @return        die Summe aus x und y
-     */
-    public int beispielMethode(int y)
-    {
-        // tragen Sie hier den Code ein
-        return x + y;
-    }
+    //Notiz für Henrik und Jan: jedes feld wird einzeln auf den bildschirm gezeichnet
+    //jedes feld hat koordinaten, auf die es dann gezeichnet wird
+    //Jpanel oder JFrame ich weiß ichnt mehr genau was aber das anschauen und dafür benutzen
+    //im konstruktor von feld an den koordinaten damit dann zeichnen
 }
