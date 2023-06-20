@@ -10,7 +10,7 @@ public class Brett
         int i=0;
         for(i=0;i<laenge;i++)
         {
-             Liste.add(new Feld(i));
+            Liste.add(new Feld(i));
         }
     }
     
