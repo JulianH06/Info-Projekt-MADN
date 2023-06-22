@@ -2,10 +2,10 @@ import java.util.Random;
 
 public class Wuerfel
 {
-    public void wuerfeln()
+    public int wuerfeln()
     {
         int x = (int)(Math.random() * ((6 - 1) + 1)) + 1;
-        System.out.println(x);
+        return x;
     }
     
     public boolean startwurfeln()

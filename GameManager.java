@@ -1,6 +1,6 @@
 public class GameManager
 {
-    private static GameManager Instance;
+    public static GameManager Instance;
     private Brett Brett;
     private Spieler[] Spieler;
     private Wuerfel w1;
@@ -16,7 +16,6 @@ public class GameManager
     public int Wuerfeln()
     {
         // muss kurz updaten
-        //int ergebnis = w1.Wuerfeln();
-        return 1;
+        return w1.wuerfeln();
     }
 }
