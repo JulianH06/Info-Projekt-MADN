@@ -7,9 +7,15 @@ public class Feld
     
     int Feldnummer;
     Figur Figur;
-    public Feld(int i)
+    private Feld nachfolger;
+    public Feld(int i, Feld x)
     {
         Feldnummer = i;
-        
+        Feld = nachfolger;
+    }
+    
+    public Feld geben()
+    {
+        return this;
     }
 }
