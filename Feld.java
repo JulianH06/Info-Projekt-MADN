@@ -4,16 +4,31 @@ public class Feld
     //jedes feld hat koordinaten, auf die es dann gezeichnet wird
     //Jpanel oder JFrame ich weiß ichnt mehr genau was aber das anschauen und dafür benutzen
     //im konstruktor von feld an den koordinaten damit dann zeichnen
-    
+
     int Feldnummer;
     Figur Figur;
     private Feld nachfolger;
-    public Feld(int i, Feld x)
+    private boolean besetzt;
+    public Feld(int i)
     {
         Feldnummer = i;
-        Feld = nachfolger;
+        besetzt = false;
+    }
+
+    public boolean istBesetzt()
+    {
+        if (besetzt == false)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
     
+    
+
     public Feld geben()
     {
         return this;
