@@ -1,23 +1,20 @@
-import java.util.LinkedList;
+
 public class Brett
 {
-    private LinkedList Liste;
+    private Feld[] Felder;
     private int laenge = 40;
+    
+  
     public void Brett()
     {
-        private Feld nachfolger;
-        Liste = new LinkedList();
+        Felder= new Feld[40];
 
-        int i=0;
-        for(i=0;i<laenge;i++)
+        
+        for(int i=0;i<laenge;i++)
         {
-            int x = 0;
-            if(i < 40)
-            {
-                x = i +1;
-            }
-            Liste.add(new Feld(i,x));
+            Felder[i] = new Feld(i);
         }
     }
-
+    //heimatfelder mit 4 feld arrays erstellen und Farben zuweisen
+    //startfelder mit feld array und farbe
 }
