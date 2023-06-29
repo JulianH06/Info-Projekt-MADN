@@ -2,8 +2,8 @@ public class Spieler
 
 {
     private Figur[] figuren;
-    private int farbe;
-    public Spieler(int f,Feld Startfeld)
+    private farbenum farbe;
+    public Spieler(farbenum f)
     {
         figuren = new Figur[4];
         farbe = f;
@@ -18,4 +18,6 @@ public class Spieler
         Feld j =figuren[non-1].ziehen(i);
         
     }
+    
+    public void 
 }
