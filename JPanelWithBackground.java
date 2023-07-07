@@ -22,7 +22,7 @@ public class JPanelWithBackground extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         // Draw the background image
-        g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), null);
+        g.drawImage(backgroundImage, 0, 0, 1000, 1000, null);
 
         // Draw multiple circles on top of the background
         int[] circleX = {
