@@ -5,7 +5,6 @@ public class GameManager
     private Spieler[] Spieler;
     private Wuerfel w1;
     
-    
     GameManager()
     {
         Instance = this;
@@ -22,17 +21,5 @@ public class GameManager
     {
         // muss kurz updaten
         return w1.wuerfeln();
-    }
-    
-    public int ButtonWuerfel()
-    {
-        //öffne fenster mit k+nopf
-        //knopf aktiviert wuerfeln()
-        //weert wird tueücskgegeben
-    }
-    
-    public int ButtonFigur()
-    {
-        
     }
 }
