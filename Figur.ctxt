@@ -1,7 +1,13 @@
 #BlueJ class context
 comment0.target=Figur
 comment1.params=f
-comment1.target=Figur(Feld)
-comment2.params=i
-comment2.target=Feld\ ziehen(int)
-numComments=3
+comment1.target=Figur(farbenum)
+comment2.params=f
+comment2.target=void\ positionSetzen(Feld)
+comment3.params=
+comment3.target=void\ reset()
+comment4.params=i
+comment4.target=Feld\ ziehen(int)
+comment5.params=
+comment5.target=farbenum\ gibFarbe()
+numComments=6

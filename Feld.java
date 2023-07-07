@@ -27,7 +27,19 @@ public class Feld
         }
     }
     
+    //notiz an tobi und gabo: hab das gemacht nicht wundern hab das kurz
+    //gebraucht -julian
+    public Figur Figurgeben()
+    {
+        return Figur;
+    }
     
+    //notiz an tobi und gabo: hab das gemacht nicht wundern hab das kurz
+    //gebraucht -julian
+    public int FeldnummerGeben()
+    {
+        return Feldnummer;
+    }
 
     public Feld geben()
     {

@@ -1,7 +1,13 @@
 #BlueJ class context
 comment0.target=Feld
-comment1.params=i\ besetzt
-comment1.target=Feld(int,\ int)
+comment1.params=i
+comment1.target=Feld(int)
 comment2.params=
-comment2.target=Feld\ geben()
-numComments=3
+comment2.target=boolean\ istBesetzt()
+comment3.params=
+comment3.target=Figur\ Figurgeben()
+comment4.params=
+comment4.target=int\ FeldnummerGeben()
+comment5.params=
+comment5.target=Feld\ geben()
+numComments=6
