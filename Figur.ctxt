@@ -3,5 +3,5 @@ comment0.target=Figur
 comment1.params=f
 comment1.target=Figur(Feld)
 comment2.params=i
-comment2.target=void\ ziehen(int)
+comment2.target=Feld\ ziehen(int)
 numComments=3
