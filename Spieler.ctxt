@@ -1,7 +1,9 @@
 #BlueJ class context
 comment0.target=Spieler
-comment1.params=f\ Startfeld
-comment1.target=Spieler(int,\ Feld)
-comment2.params=non\ i
-comment2.target=void\ ziehen(int,\ int)
-numComments=3
+comment1.params=f
+comment1.target=Spieler(farbenum)
+comment2.params=
+comment2.target=void\ spielzug()
+comment3.params=nummer\ i
+comment3.target=void\ ziehen(int,\ int)
+numComments=4
