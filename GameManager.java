@@ -5,7 +5,6 @@ public class GameManager
     private static Spieler[] Spieler;
     private static Wuerfel w1;
     
-    
     GameManager()
     {
         Instance = this;
@@ -24,9 +23,9 @@ public class GameManager
         return w1.wuerfeln();
     }
     
-    public static int ButtonWuerfel()
+    public static int ButtonWuerfel() throws java.io.IOException
     {
-        JFrame1.frame(); //frame() ignorieren, brauch ich nur kurz zum testen
+        new UI(); //frame() ignorieren, brauch ich nur kurz zum testen
         //öffne fenster mit k+nopf
         //knopf aktiviert wuerfeln()
         //weert wird tueücskgegeben
