@@ -13,7 +13,7 @@ public class Spieler
         figuren[3] = new Figur(f);
     }
     
-    public void spielzug()
+    public void spielzug() throws java.io.IOException
     {
         int i = GameManager.Instance.ButtonWuerfel();
         int j = GameManager.Instance.ButtonFigur();

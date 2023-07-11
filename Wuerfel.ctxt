@@ -2,6 +2,4 @@
 comment0.target=Wuerfel
 comment1.params=
 comment1.target=int\ wuerfeln()
-comment2.params=
-comment2.target=boolean\ startwurfeln()
-numComments=3
+numComments=2

@@ -10,6 +10,4 @@ comment4.params=
 comment4.target=int\ FeldnummerGeben()
 comment5.params=f
 comment5.target=void\ Figursetzen(Figur)
-comment6.params=
-comment6.target=Feld\ geben()
-numComments=7
+numComments=6
