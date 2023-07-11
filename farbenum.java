@@ -1,7 +1,7 @@
 public enum farbenum
 {
-    blau,
-    rot,
+    gelb,
     gruen,
-    schwarz
+    schwarz,
+    rot
 }
