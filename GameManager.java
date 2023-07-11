@@ -26,6 +26,7 @@ public class GameManager
     
     public static int ButtonWuerfel()
     {
+        JFrame1.frame(); //frame() ignorieren, brauch ich nur kurz zum testen
         //öffne fenster mit k+nopf
         //knopf aktiviert wuerfeln()
         //weert wird tueücskgegeben
