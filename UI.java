@@ -6,11 +6,11 @@ import javax.imageio.ImageIO;
 
 public class UI
 {
-    static JLabel label1 = new JLabel("Spieler Würfelt...");
-    static JFrame frame;
-    private static ImageIcon Bild;
+    JLabel label1 = new JLabel("Spieler Würfelt...");
+    JFrame frame;
+    private ImageIcon Bild;
     
-    public static void main(String[] arg) throws java.io.IOException
+    public void main(String[] arg) throws java.io.IOException
     {
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
