@@ -1,13 +1,15 @@
 #BlueJ class context
 comment0.target=Feld
-comment1.params=i
-comment1.target=Feld(int)
+comment1.params=i\ f
+comment1.target=Feld(int,\ farbenum)
 comment2.params=
 comment2.target=boolean\ istBesetzt()
 comment3.params=
 comment3.target=Figur\ Figurgeben()
 comment4.params=
 comment4.target=int\ FeldnummerGeben()
-comment5.params=
-comment5.target=Feld\ geben()
-numComments=6
+comment5.params=f
+comment5.target=void\ Figursetzen(Figur)
+comment6.params=
+comment6.target=Feld\ geben()
+numComments=7

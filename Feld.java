@@ -9,12 +9,14 @@ public class Feld
     Figur Figur;
     private Feld nachfolger;
     private boolean besetzt;
-    public Feld(int i)
+    private farbenum farbe; 
+    public Feld(int i, farbenum f)
     {
         Feldnummer = i;
         besetzt = false;
+        farbe = f ;
     }
-
+    
     public boolean istBesetzt()
     {
         if (besetzt == false)
@@ -40,7 +42,10 @@ public class Feld
     {
         return Feldnummer;
     }
-
+    public void Figursetzen(Figur f )
+    {
+        Figur = f;
+    }
     public Feld geben()
     {
         return this;
