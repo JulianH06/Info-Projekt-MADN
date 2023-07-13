@@ -2,19 +2,19 @@ import java.util.Arrays;
 
 public class Brett
 {
-    private Feld[] Felder;
+    private static Feld[] Felder;
     
     
-    private Feld[] SchwarzStart;
-    private Feld[] GruenStart;
-    private Feld[] RotStart;
-    private Feld[] GelbStart;
+    private static Feld[] SchwarzStart;
+    private static Feld[] GruenStart;
+    private static Feld[] RotStart;
+    private static Feld[] GelbStart;
     
     
-    private Feld[] HausSchwarz;
-    private Feld[] HausGruen;
-    private Feld[] HausRot;
-    private Feld[] HausGelb;
+    private static Feld[] HausSchwarz;
+    private static Feld[] HausGruen;
+    private static Feld[] HausRot;
+    private static Feld[] HausGelb;
     
     
     public void Brett()
@@ -45,5 +45,26 @@ public class Brett
             HausRot[i] = new Feld(999, farbenum.rot);
             HausGelb[i] = new Feld(999, farbenum.gelb);
         }
+    }
+    
+    public static Feld gibFeld(int i)
+    {
+        return Felder[i];
+    }
+    
+    public static Feld gibStartfeld(farbenum f)
+    {
+        switch(f)
+        {
+            case gelb:
+                for(int i = 0; i < 4; i++)
+                {
+                    if(HausGelb[i] != null)
+                    {
+                        return HausGelb[i];
+                    }
+                }
+        }
+        //muss ich noch fertig machen -Julian
     }
 }
