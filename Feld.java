@@ -38,4 +38,21 @@ public class Feld
     {
         Figur = f;
     }
+    
+    public static Feld AbzweigungGeben(farbenum f)
+    {
+        switch(f)
+        {
+            case gelb:
+                return Brett.gibFeld(9);
+            case gruen:
+                return Brett.gibFeld(19);
+            case rot:
+                return Brett.gibFeld(29);
+            case schwarz:
+                return Brett.gibFeld(39);
+        }
+        System.out.println("abzweigung funktioniert nicht 0 wird ausgegeben");
+        return 0;
+    }
 }
