@@ -6,7 +6,7 @@ public class Figur
     private farbenum farbe;
     public Figur(farbenum f)
     {
-        startfeld = Brett.gibStartfeld(f); //evtl. nicht im Brett implementiert
+        //startfeld = Brett.gibStartfeld(f); //evtl. nicht im Brett implementiert
         position = startfeld;
     }
     

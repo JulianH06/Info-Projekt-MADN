@@ -2,4 +2,6 @@
 comment0.target=brettUI
 comment1.params=
 comment1.target=brettUI()
-numComments=2
+comment2.params=f
+comment2.target=javax.swing.JLabel[]\ gibLabelArr(farbenum)
+numComments=3

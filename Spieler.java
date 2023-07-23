@@ -3,8 +3,10 @@ public class Spieler
 {
     //
     private Figur[] figuren;
-    private farbenum farbe;
-    public Spieler(farbenum f)
+    protected farbenum farbe;
+    private figurauswahlUI fUI;
+    
+    public Spieler(farbenum f) throws java.io.IOException
     {
         figuren = new Figur[4];
         farbe = f;
@@ -14,10 +16,12 @@ public class Spieler
         figuren[3] = new Figur(f);
     }
     
-    public void spielzug()
+    public synchronized void spielzug() throws java.io.IOException,InterruptedException
     {
         int i = GameManager.Instance.ButtonWuerfel();
-        int j = GameManager.Instance.ButtonFigur();
+        System.out.println(i + "FROM " + farbe);
+        fUI = new figurauswahlUI(farbe);
+        int j = GameManager.Instance.ButtonFigur(farbe);
         ziehen(j,i);
     }
     
@@ -39,4 +43,24 @@ public class Spieler
             f.Figursetzen(figuren[nummer]); //evtl. nicht im Feld implementiert
         }
     }    
+    
+    public figurauswahlUI gibfUI()
+    {
+        return fUI;
+    }
+    
+    public farbenum gibFarbe()
+    {
+        return farbe;
+    }
+    
+    public Figur gibFigur(int i)
+    {
+        return figuren[i];
+    }
+    
+    public synchronized void notifySpieler()
+    {
+        notifyAll();
+    }
 }

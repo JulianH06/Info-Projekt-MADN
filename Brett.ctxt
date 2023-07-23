@@ -2,4 +2,8 @@
 comment0.target=Brett
 comment1.params=
 comment1.target=void\ Brett()
-numComments=2
+comment2.params=i
+comment2.target=Feld\ gibFeld(int)
+comment3.params=f
+comment3.target=Feld\ gibStartfeld(farbenum)
+numComments=4

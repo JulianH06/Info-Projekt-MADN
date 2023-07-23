@@ -43,16 +43,16 @@ public class Feld
     {
         switch(f)
         {
-            case gelb:
+            case Gelb:
                 return Brett.gibFeld(9);
-            case gruen:
+            case Grün:
                 return Brett.gibFeld(19);
-            case rot:
+            case Rot:
                 return Brett.gibFeld(29);
-            case schwarz:
+            case Schwarz:
                 return Brett.gibFeld(39);
         }
         System.out.println("abzweigung funktioniert nicht 0 wird ausgegeben");
-        return 0;
+        return null;
     }
 }
