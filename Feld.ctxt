@@ -10,4 +10,6 @@ comment4.params=
 comment4.target=int\ FeldnummerGeben()
 comment5.params=f
 comment5.target=void\ Figursetzen(Figur)
-numComments=6
+comment6.params=f
+comment6.target=Feld\ AbzweigungGeben(farbenum)
+numComments=7

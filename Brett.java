@@ -36,14 +36,14 @@ public class Brett
         
         for(int i = 0;i<4; i++)
         {
-            SchwarzStart[i] = new Feld(999, farbenum.schwarz);
-            GruenStart[i] = new Feld(999, farbenum.gruen);
-            RotStart[i] = new Feld(999, farbenum.rot);
-            GelbStart[i] = new Feld(999, farbenum.gelb);
-            HausSchwarz[i] = new Feld(999, farbenum.schwarz);
-            HausGruen[i] = new Feld(999, farbenum.gruen);
-            HausRot[i] = new Feld(999, farbenum.rot);
-            HausGelb[i] = new Feld(999, farbenum.gelb);
+            SchwarzStart[i] = new Feld(999, farbenum.Schwarz);
+            GruenStart[i] = new Feld(999, farbenum.Grün);
+            RotStart[i] = new Feld(999, farbenum.Rot);
+            GelbStart[i] = new Feld(999, farbenum.Gelb);
+            HausSchwarz[i] = new Feld(999, farbenum.Schwarz);
+            HausGruen[i] = new Feld(999, farbenum.Grün);
+            HausRot[i] = new Feld(999, farbenum.Rot);
+            HausGelb[i] = new Feld(999, farbenum.Gelb);
         }
     }
     
@@ -56,7 +56,7 @@ public class Brett
     {
         switch(f)
         {
-            case gelb:
+            case Gelb:
                 for(int i = 0; i < 4; i++)
                 {
                     if(HausGelb[i] != null)
@@ -65,6 +65,7 @@ public class Brett
                     }
                 }
         }
+        return null;
         //muss ich noch fertig machen -Julian
     }
 }

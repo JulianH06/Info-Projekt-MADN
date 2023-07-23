@@ -6,4 +6,6 @@ comment2.params=w\ h\ x\ y
 comment2.target=UI(int,\ int,\ int,\ int)
 comment3.params=
 comment3.target=void\ resetsize()
-numComments=4
+comment4.params=
+comment4.target=void\ close()
+numComments=5

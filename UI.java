@@ -3,6 +3,7 @@ import java.io.File;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.concurrent.TimeUnit;
 
 public class UI
 {
@@ -38,5 +39,11 @@ public class UI
         //des Fensters verändere
         //Ich weiß nicht warum das passiert aber durch diese Methode wird der
         //Fehler behoben 
+    }
+    
+    public void close()
+    {
+        frame.setVisible(false);
+        frame.dispose();
     }
 }
