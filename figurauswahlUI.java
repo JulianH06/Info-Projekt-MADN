@@ -17,7 +17,7 @@ public class figurauswahlUI extends UI implements ActionListener, MouseListener
     
     public figurauswahlUI(farbenum f) throws java.io.IOException
     {
-        super(600, 600, 1100, 200);
+        super(600, 600, 1100, 300);
         
         label1.setHorizontalAlignment(JLabel.CENTER);
         label1.setVerticalAlignment(JLabel.TOP);
@@ -25,7 +25,6 @@ public class figurauswahlUI extends UI implements ActionListener, MouseListener
         
         for(int i = 0; i < 4; i++)
         {
-            System.out.println(f.ordinal());
             KnopfArr[i] = new JButton(new ImageIcon(ImageIO.read(
             new File("figur"+ f.ordinal() +".jpg"))));
             
@@ -61,6 +60,7 @@ public class figurauswahlUI extends UI implements ActionListener, MouseListener
         {
             GameManager.aktFigurSetzen(3);
         }
+        gewaehlt = true;
         GameManager.Instance.notifyGM();
         super.close();
     }
@@ -119,10 +119,54 @@ public class figurauswahlUI extends UI implements ActionListener, MouseListener
     {}
     
     public void mouseReleased(MouseEvent e)
-    {}
+    {
+        JButton Button = (JButton) e.getComponent();
+        if(Button == KnopfArr[0])
+        {
+            try{GameManager.unhighlightFigur(0);}catch (java.io.IOException ioe)
+            {ioe.printStackTrace();} 
+        }
+        if(Button == KnopfArr[1])
+        {
+            try{GameManager.unhighlightFigur(1);}catch (java.io.IOException ioe)
+            {ioe.printStackTrace();} 
+        }
+        if(Button == KnopfArr[2])
+        {
+            try{GameManager.unhighlightFigur(2);}catch (java.io.IOException ioe)
+            {ioe.printStackTrace();} 
+        }
+        if(Button == KnopfArr[3])
+        {
+            try{GameManager.unhighlightFigur(3);}catch (java.io.IOException ioe)
+            {ioe.printStackTrace();} 
+        }
+    }
     
     public void mouseClicked(MouseEvent e)
-    {}
+    {
+        JButton Button = (JButton) e.getComponent();
+        if(Button == KnopfArr[0])
+        {
+            try{GameManager.unhighlightFigur(0);}catch (java.io.IOException ioe)
+            {ioe.printStackTrace();} 
+        }
+        if(Button == KnopfArr[1])
+        {
+            try{GameManager.unhighlightFigur(1);}catch (java.io.IOException ioe)
+            {ioe.printStackTrace();} 
+        }
+        if(Button == KnopfArr[2])
+        {
+            try{GameManager.unhighlightFigur(2);}catch (java.io.IOException ioe)
+            {ioe.printStackTrace();} 
+        }
+        if(Button == KnopfArr[3])
+        {
+            try{GameManager.unhighlightFigur(3);}catch (java.io.IOException ioe)
+            {ioe.printStackTrace();} 
+        }
+    }
     
     public boolean gewaehlt()
     {

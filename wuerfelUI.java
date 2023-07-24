@@ -52,39 +52,31 @@ public class wuerfelUI extends UI implements ActionListener
         if(!gewuerfelt)
         {
             int erg = GameManager.Wuerfeln();
-            //try{wuerfelanimation();}catch(java.io.IOException ie){}
-            //try{TimeUnit.SECONDS.sleep(1);}catch (InterruptedException ie){}
+            
             label1.setText(String.valueOf(erg));
+            
             try{
                 Knopf.setIcon(new ImageIcon(ImageIO.read(new File(
                             "wuerfel" + erg + ".jpg"))));}
             catch (Exception ie){}
+            
+            label1.hide();
+            frame.setLocation(1250, 0);
+            Knopf.setBounds(17,5, 250, 250);
+            frame.setSize(300, 300);
+            frame.setTitle("Ergebnis");
+            
             GameManager.Instance.notifyGM();
             GameManager.ergebnisSetzen(erg);
+            
             gewuerfelt = true;
+            
             frame.repaint();
-            System.out.println("RUNNING");
         }
     }
     
     public boolean gewuerfelt()
     {
         return gewuerfelt;
-    }
-    
-    public void wuerfelanimation() throws java.io.IOException
-    {
-        System.out.println("ANIM");
-        Knopf.disable();
-        Knopf.hide();
-        for(int i = 1; i < 10; i++)
-        {
-            int rnd = new Random().nextInt(6);
-            System.out.println(i);
-            label1.setIcon(WuerfelGif);//WuerfelImageArr[rnd]);
-            //Knopf.disable();
-            try{TimeUnit.MILLISECONDS.sleep(100);}catch (InterruptedException ie)
-            {ie.printStackTrace();}
-        }
     }
 }

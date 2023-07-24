@@ -4,4 +4,6 @@ comment1.params=
 comment1.target=brettUI()
 comment2.params=f
 comment2.target=javax.swing.JLabel[]\ gibLabelArr(farbenum)
-numComments=3
+comment3.params=f\ fe\ figurnr
+comment3.target=void\ ziehFigur(Feld,\ farbenum,\ int)
+numComments=4

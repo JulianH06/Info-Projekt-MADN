@@ -19,29 +19,72 @@ public class Spieler
     public synchronized void spielzug() throws java.io.IOException,InterruptedException
     {
         int i = GameManager.Instance.ButtonWuerfel();
-        System.out.println(i + "FROM " + farbe);
+        System.out.println(i + " FROM " + farbe);
         fUI = new figurauswahlUI(farbe);
         int j = GameManager.Instance.ButtonFigur(farbe);
         ziehen(j,i);
     }
     
-    public void ziehen(int nummer, int i)
+    public void ziehen(int nummer, int i) throws java.io.IOException,InterruptedException
     {
-        Feld f = figuren[nummer].ziehen(i);
-        if(f.Figurgeben().gibFarbe() == farbe)
+        if(figuren[nummer].gibPosTyp() == posenum.Start)
         {
-            ziehen(f.FeldnummerGeben(),1);
-        }
-        else
-        {
-            if(f.Figurgeben().gibFarbe() != null)
+            if(i != 6)
             {
-                Figur a = f.Figurgeben();   
-                a.reset();
+                GameManager.naechsterZug();
+                return;
+            }else{
+                Feld f = GameManager.gibBrett().gibA(farbe);
+                if(f.Figurgeben() != null)
+                {
+                    if(f.Figurgeben().gibFarbe() == farbe)
+                    {
+                        ziehen(nummer, f.FeldnummerGeben() + 1);
+                        figuren[nummer].startVerlassen();
+                        return;
+                    }
+                    else
+                    {
+                        if(f.Figurgeben().gibFarbe() != null)
+                        {
+                            Figur a = f.Figurgeben();   
+                            a.reset();
+                        }
+                        figuren[nummer].positionSetzen(f);                      
+                        f.Figursetzen(figuren[nummer]); //evtl. nicht im Feld implementiert
+                    }
+                }
+                GameManager.gibBrettUI().ziehFigur(f, farbe, nummer); 
+                figuren[nummer].startVerlassen();
+                GameManager.Instance.repaint();
+                GameManager.naechsterZug();
+                return;
             }
-            figuren[nummer].positionSetzen(f);
-            f.Figursetzen(figuren[nummer]); //evtl. nicht im Feld implementiert
         }
+        
+        Feld f = figuren[nummer].ziehen(i);
+        if(f.Figurgeben() != null)
+        {
+            if(f.Figurgeben().gibFarbe() == farbe)
+            {
+                ziehen(nummer, f.FeldnummerGeben() + 1);
+                return;
+            }
+            else
+            {
+                if(f.Figurgeben().gibFarbe() != null)
+                {
+                    Figur a = f.Figurgeben();   
+                    a.reset();
+                }
+                figuren[nummer].positionSetzen(f);
+                f.Figursetzen(figuren[nummer]); //evtl. nicht im Feld implementiert
+            }
+        }
+        GameManager.gibBrettUI().ziehFigur(f, farbe, nummer); 
+        GameManager.Instance.repaint();
+        GameManager.naechsterZug();
+        return;
     }    
     
     public figurauswahlUI gibfUI()

@@ -10,8 +10,8 @@ public class reihenfolgeUI extends UI implements ActionListener
 {
     protected JButton KnopfGe;
     protected JButton KnopfGr;
-    protected JButton KnopfSc;
     protected JButton KnopfRo;
+    protected JButton KnopfSc;
     JLabel label1 = new JLabel("Wähle den zu beginnenden Spieler!");
     
     public reihenfolgeUI() throws java.io.IOException
@@ -24,18 +24,18 @@ public class reihenfolgeUI extends UI implements ActionListener
         
         KnopfGe = new JButton(new ImageIcon(ImageIO.read(new File("figur0.jpg"))));
         KnopfGr = new JButton(new ImageIcon(ImageIO.read(new File("figur1.jpg"))));
-        KnopfSc = new JButton(new ImageIcon(ImageIO.read(new File("figur2.jpg"))));
-        KnopfRo = new JButton(new ImageIcon(ImageIO.read(new File("figur3.jpg"))));
+        KnopfRo = new JButton(new ImageIcon(ImageIO.read(new File("figur2.jpg"))));
+        KnopfSc = new JButton(new ImageIcon(ImageIO.read(new File("figur3.jpg"))));
         
         KnopfGe.setBounds(75, 75, 200, 200);
         KnopfGr.setBounds(325, 75, 200, 200);
-        KnopfSc.setBounds(75, 325, 200, 200);
         KnopfRo.setBounds(325, 325, 200, 200);
+        KnopfSc.setBounds(75, 325, 200, 200);
         
         KnopfGe.addActionListener(this);
         KnopfGr.addActionListener(this);
-        KnopfSc.addActionListener(this);
         KnopfRo.addActionListener(this);
+        KnopfSc.addActionListener(this);
         
         frame.add(KnopfGe);
         frame.add(KnopfGr);
@@ -54,13 +54,13 @@ public class reihenfolgeUI extends UI implements ActionListener
         {
             GameManager.beginnendenSpielerSetzen(farbenum.Grün);
         }
-        if(ae.getSource() == KnopfSc)
-        {
-            GameManager.beginnendenSpielerSetzen(farbenum.Schwarz);
-        }
         if(ae.getSource() == KnopfRo)
         {
             GameManager.beginnendenSpielerSetzen(farbenum.Rot);
+        }
+        if(ae.getSource() == KnopfSc)
+        {
+            GameManager.beginnendenSpielerSetzen(farbenum.Schwarz);
         }
         GameManager.Instance.notifyGM();
         super.close();
