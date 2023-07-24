@@ -12,26 +12,31 @@ public class GameManager
     private static Brett Brett;
     private static Spieler[] Spieler;
     private static Wuerfel w1;
-    private static UI UI;
+    private static brettUI brettUI;
     private static int aktuellesErgebnis;
     private static farbenum aktuellerSpieler;
     private static int aktuelleFigur;
     private static farbenum beginnenderSpieler;
     
+    public static void main(String[] args) throws java.io.IOException, InterruptedException {
+        new GameManager();
+    }
+    
     GameManager() throws InterruptedException,java.io.IOException
     {
         Instance = this; //wird evntl. noch gelöscht falls nicht nötig
+        
+        //erstellt Brett und öffnet das UI Fenster
+        Brett = new Brett();
+        brettUI = new brettUI();
         
         //erstellt die spieler und weißt ihnen eine farbe zu
         Spieler = new Spieler[4];
         Spieler[0] = new Spieler(farbenum.Gelb);
         Spieler[1] = new Spieler(farbenum.Grün);
-        Spieler[2] = new Spieler(farbenum.Schwarz);
-        Spieler[3] = new Spieler(farbenum.Rot);
+        Spieler[2] = new Spieler(farbenum.Rot);
+        Spieler[3] = new Spieler(farbenum.Schwarz);
         
-        //erstellt Brett und öffnet das UI Fenster
-        Brett = new Brett();
-        new brettUI();
         
         spielStarten();
     }
@@ -47,10 +52,7 @@ public class GameManager
         while(!w1.wUIgeben().gewuerfelt())
         {
             wait();   
-        }        
-        //öffne fenster mit k+nopf
-        //knopf aktiviert wuerfeln()
-        //weert wird tueücskgegeben
+        }
         return aktuellesErgebnis;
     }
     
@@ -60,7 +62,6 @@ public class GameManager
         {
             wait();
         }
-        //NOCH NICHT FERTIG!!!
         return aktuelleFigur;
     }
     
@@ -86,7 +87,6 @@ public class GameManager
         wait();
         
         Spieler[aktuellerSpieler.ordinal()].spielzug();
-        
     }
     
     public static void highlightFigur(int i) throws java.io.IOException
@@ -114,9 +114,47 @@ public class GameManager
         return aktuellerSpieler;
     }
     
+    public static Brett gibBrett()
+    {
+        return Brett;
+    }
+    
+    public static brettUI gibBrettUI()
+    {
+        return brettUI;
+    }
+    
     public static void beginnendenSpielerSetzen(farbenum i)
     {
         beginnenderSpieler = i;
         aktuellerSpieler = i;
+    }
+    
+    public void repaint()
+    {
+        brettUI.frame.repaint();
+    }
+    
+    public static farbenum gibNaechsteFarbe(int i)
+    {
+        switch(i)
+        {
+            case 0:
+                return farbenum.Grün;
+            case 1:
+                return farbenum.Rot;
+            case 2:
+                return farbenum.Schwarz;
+            case 3:
+                return farbenum.Gelb;
+        }
+        return null;
+    }
+    
+    public static void naechsterZug() throws InterruptedException,java.io.IOException
+    {
+        w1.wUIgeben().close();
+        aktuellerSpieler = gibNaechsteFarbe(aktuellerSpieler.ordinal());
+        Spieler[aktuellerSpieler.ordinal()].spielzug();
     }
 }

@@ -1,15 +1,25 @@
 public class Feld
 {
     private int Feldnummer;
-    private Figur Figur;
+    private Figur Figur = null;
     private boolean besetzt;
     private farbenum farbe; 
+    private int x, y;
     
     public Feld(int i, farbenum f)
     {
         Feldnummer = i;
         besetzt = false;
         farbe = f;
+    }
+    
+    public Feld(int i, farbenum f, int x, int y)
+    {
+        Feldnummer = i;
+        besetzt = false;
+        farbe = f;
+        this.x = x;
+        this.y = y;
     }
     
     public boolean istBesetzt()
@@ -39,9 +49,9 @@ public class Feld
         Figur = f;
     }
     
-    public static Feld AbzweigungGeben(farbenum f)
+    public static int AbzweigungGeben(farbenum f)
     {
-        switch(f)
+        /*switch(f)
         {
             case Gelb:
                 return Brett.gibFeld(9);
@@ -53,6 +63,23 @@ public class Feld
                 return Brett.gibFeld(39);
         }
         System.out.println("abzweigung funktioniert nicht 0 wird ausgegeben");
-        return null;
+        return null;*/
+        return 0;
+    }
+    
+    public void KoordinatenSetzen(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
+    }
+    
+    public int gibX()
+    {
+        return x;
+    }
+    
+    public int gibY()
+    {
+        return y;
     }
 }
