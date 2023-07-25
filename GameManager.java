@@ -135,6 +135,22 @@ public class GameManager
         brettUI.frame.repaint();
     }
     
+    public static Spieler gibSpieler(farbenum f)
+    {
+        switch(f)
+        {
+            case Gelb:
+                return Spieler[0];
+            case Grün:
+                return Spieler[1];
+            case Rot:
+                return Spieler[2];
+            case Schwarz:
+                return Spieler[3];
+        }
+        return null;
+    }
+    
     public static farbenum gibNaechsteFarbe(int i)
     {
         switch(i)

@@ -35,6 +35,7 @@ public class Figur
     
     public Feld ziehen(int i)
     {
+        System.out.println(position.gibX() + " " + position.gibY());
         if(!inStart)
         {
             int p = position.FeldnummerGeben()+i;

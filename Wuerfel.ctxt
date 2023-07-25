@@ -1,5 +1,9 @@
 #BlueJ class context
 comment0.target=Wuerfel
 comment1.params=
-comment1.target=int\ wuerfeln()
-numComments=2
+comment1.target=Wuerfel()
+comment2.params=
+comment2.target=int\ wuerfeln()
+comment3.params=
+comment3.target=wuerfelUI\ wUIgeben()
+numComments=4

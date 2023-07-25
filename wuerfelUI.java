@@ -26,7 +26,7 @@ public class wuerfelUI extends UI implements ActionListener
         label1.setFont(label1.getFont().deriveFont(32f));
         
         Bild = new ImageIcon(ImageIO.read(new File("wuerfel.jpg")));
-        WuerfelGif = new ImageIcon(ImageIO.read(new File("wuerfelgif.gif")));
+        //WuerfelGif = new ImageIcon(ImageIO.read(new File("wuerfelgif.gif")));
         //frame.add(new JLabel(Bild));
         
         WuerfelImageArr = new ImageIcon[6];
@@ -36,9 +36,8 @@ public class wuerfelUI extends UI implements ActionListener
             "wuerfel" + (i+1) + ".jpg")));
         }
         
-        int rnd = new Random().nextInt(6)+1;
         Knopf = new JButton(new ImageIcon(ImageIO.read(new File(
-                            "wuerfel" + rnd  + ".jpg"))));
+                            "wuerfelFRAGEZEICHEN.jpg"))));
                             
         Knopf.setBounds(17, 50, 550, 600);
         Knopf.addActionListener(this);

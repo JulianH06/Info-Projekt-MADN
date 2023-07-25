@@ -2,7 +2,7 @@ public class Spieler
 
 {
     //
-    private Figur[] figuren;
+    private static Figur[] figuren;
     protected farbenum farbe;
     private figurauswahlUI fUI;
     
@@ -47,13 +47,16 @@ public class Spieler
                     {
                         if(f.Figurgeben().gibFarbe() != null)
                         {
-                            Figur a = f.Figurgeben();   
+                            Figur a = f.Figurgeben();  
+                            
+                            //GameManager.gibBrettUI().ziehFigur(f, farbe, nummer);
                             a.reset();
                         }
-                        figuren[nummer].positionSetzen(f);                      
-                        f.Figursetzen(figuren[nummer]); //evtl. nicht im Feld implementiert
+                        
                     }
                 }
+                figuren[nummer].positionSetzen(f);
+                f.Figursetzen(figuren[nummer]);
                 GameManager.gibBrettUI().ziehFigur(f, farbe, nummer); 
                 figuren[nummer].startVerlassen();
                 GameManager.Instance.repaint();
@@ -63,6 +66,7 @@ public class Spieler
         }
         
         Feld f = figuren[nummer].ziehen(i);
+        System.out.println(f.gibX() + " " + f.gibY());
         if(f.Figurgeben() != null)
         {
             if(f.Figurgeben().gibFarbe() == farbe)
@@ -77,10 +81,11 @@ public class Spieler
                     Figur a = f.Figurgeben();   
                     a.reset();
                 }
-                figuren[nummer].positionSetzen(f);
-                f.Figursetzen(figuren[nummer]); //evtl. nicht im Feld implementiert
+                 //evtl. nicht im Feld implementiert
             }
         }
+        figuren[nummer].positionSetzen(f);
+        f.Figursetzen(figuren[nummer]);
         GameManager.gibBrettUI().ziehFigur(f, farbe, nummer); 
         GameManager.Instance.repaint();
         GameManager.naechsterZug();
@@ -97,7 +102,7 @@ public class Spieler
         return farbe;
     }
     
-    public Figur gibFigur(int i)
+    public static Figur gibFigur(int i)
     {
         return figuren[i];
     }
