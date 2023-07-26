@@ -30,10 +30,10 @@ public class brettUI extends UI
         //erstellt das leere Fenster
         super(1000, 1000, 25, 25);
         
-        GameManager.gibBrett().gibA(farbenum.Grün).KoordinatenSetzen(545, 45);
-        GameManager.gibBrett().gibA(farbenum.Rot).KoordinatenSetzen(865, 535);
-        GameManager.gibBrett().gibA(farbenum.Schwarz).KoordinatenSetzen(380, 860);
-        GameManager.gibBrett().gibA(farbenum.Gelb).KoordinatenSetzen(57, 370);
+            // GameManager.gibBrett().gibA(farbenum.Grün).KoordinatenSetzen(545, 45);
+            // GameManager.gibBrett().gibA(farbenum.Rot).KoordinatenSetzen(865, 535);
+            // GameManager.gibBrett().gibA(farbenum.Schwarz).KoordinatenSetzen(380, 860);
+            // GameManager.gibBrett().gibA(farbenum.Gelb).KoordinatenSetzen(57, 370);
         
         for(int i = 0; i < 4; i++)
         {
@@ -44,7 +44,7 @@ public class brettUI extends UI
             f11b14[i] = GameManager.gibBrett().gibFeld(i+11);
             f11b14[i].KoordinatenSetzen(865 - 80*(i+1) , 535);
             f15b18[i] = GameManager.gibBrett().gibFeld(i+15);
-            f15b18[i].KoordinatenSetzen(545, 465 - (80*i));
+            f15b18[i].KoordinatenSetzen(545, 465 + 150 + (80*i));
             f21b24[i] = GameManager.gibBrett().gibFeld(i+21);
             f21b24[i].KoordinatenSetzen(380, 860 + 80*(i+1));
             f25b28[i] = GameManager.gibBrett().gibFeld(i+25);
@@ -144,5 +144,17 @@ public class brettUI extends UI
         System.out.println(fe + " zieht auf" + f.gibX()+ ", " + f.gibY());
         gibLabelArr(fe)[figurnr].setLocation(f.gibX(), f.gibY());
         frame.repaint();
+    }
+    
+    public void ziehFigur(Feld f, farbenum fe, Figur figur)
+    {
+        Spieler figuren = GameManager.gibSpieler(fe);
+        for(int i = 0; i < 4; i ++)
+        {
+            if(Spieler.gibFigur(i) == figur)
+            {
+                ziehFigur(f, fe, i);
+            }
+        }
     }
 }

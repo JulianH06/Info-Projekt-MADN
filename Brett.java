@@ -33,7 +33,6 @@ public class Brett
         HausGruen = new Feld[4];
         HausRot = new Feld[4];
         HausGelb = new Feld[4];
-        
         for(int i=0;i<Felder.length;i++)
         {
             Felder[i] = new Feld(i, null);
@@ -55,10 +54,21 @@ public class Brett
         RotA = gibFeld(10);
         SchwarzA = gibFeld(20);
         GelbA = gibFeld(30);
+        
+        GruenA.KoordinatenSetzen(545, 45);
+        RotA.KoordinatenSetzen(865, 535);
+        SchwarzA.KoordinatenSetzen(380, 860);
+        GelbA.KoordinatenSetzen(57, 370);
+        
+        Felder[9].KoordinatenSetzen(865, 535 - 80);
+        Felder[19].KoordinatenSetzen(380 + 80, 860);
+        Felder[29].KoordinatenSetzen(57, 370 + 80);
+        Felder[39].KoordinatenSetzen(545-80, 45);
     }
     
     public static Feld gibFeld(int i)
     {
+        System.out.println("FELD " + Felder[i].FeldnummerGeben() + " ZURÜCK GEGEBEN");
         return Felder[i];
     }
     
