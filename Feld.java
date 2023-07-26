@@ -24,14 +24,7 @@ public class Feld
     
     public boolean istBesetzt()
     {
-        if (besetzt == false)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
+        return besetzt;
     }
     
     public Figur Figurgeben()
@@ -46,7 +39,21 @@ public class Feld
     
     public void Figursetzen(Figur f )
     {
+        if(f == null)
+        {
+            besetzt = false;
+        }
+        else
+        {
+            besetzt = true;
+        }
         Figur = f;
+    }
+    
+    public void nichtmehrbesetzen()
+    {
+        besetzt = false;
+        Figur = null;
     }
     
     public static int AbzweigungGeben(farbenum f)

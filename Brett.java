@@ -44,16 +44,41 @@ public class Brett
             GruenStart[i] = new Feld(0, farbenum.Grün);
             RotStart[i] = new Feld(0, farbenum.Rot);
             GelbStart[i] = new Feld(0, farbenum.Gelb);
-            HausSchwarz[i] = new Feld(0, farbenum.Schwarz);
-            HausGruen[i] = new Feld(0, farbenum.Grün);
-            HausRot[i] = new Feld(0, farbenum.Rot);
-            HausGelb[i] = new Feld(0, farbenum.Gelb);
+            HausSchwarz[i] = new Feld(80+1, farbenum.Schwarz);
+            HausGruen[i] = new Feld(60+i, farbenum.Grün);
+            HausRot[i] = new Feld(70+i, farbenum.Rot);
+            HausGelb[i] = new Feld(50+i, farbenum.Gelb);
+            
+            HausGelb[i].KoordinatenSetzen(57+80*(i+2), 370 + 80);
+            HausGruen[i].KoordinatenSetzen(545-80, 45+80*(i+2));
+            HausSchwarz[i].KoordinatenSetzen(380+80, 860 - 80*(i+2));
+            HausRot[i].KoordinatenSetzen(865 - 80*(i+2), 535-80);
         }
         
         GruenA = gibFeld(0);
         RotA = gibFeld(10);
         SchwarzA = gibFeld(20);
         GelbA = gibFeld(30);
+        
+        GelbStart[0].KoordinatenSetzen(55, 50);
+        GelbStart[1].KoordinatenSetzen(135, 50);
+        GelbStart[2].KoordinatenSetzen(55, 130);
+        GelbStart[3].KoordinatenSetzen(135, 130);
+        
+        GruenStart[0].KoordinatenSetzen(55 + 735, 50);
+        GruenStart[1].KoordinatenSetzen(135 + 735, 50);
+        GruenStart[2].KoordinatenSetzen(55 + 735, 130);
+        GruenStart[3].KoordinatenSetzen(135 + 735, 130);
+        
+        RotStart[0].KoordinatenSetzen(55 + 734, 50 + 730);
+        RotStart[1].KoordinatenSetzen(135 + 737, 50 + 730);
+        RotStart[2].KoordinatenSetzen(55 + 734, 130 + 730);
+        RotStart[3].KoordinatenSetzen(872, 860);
+        
+        SchwarzStart[0].KoordinatenSetzen(54, 50 + 728);
+        SchwarzStart[1].KoordinatenSetzen(137, 50 + 728);
+        SchwarzStart[2].KoordinatenSetzen(54, 130 + 728);
+        SchwarzStart[3].KoordinatenSetzen(137, 130 + 728);
         
         GruenA.KoordinatenSetzen(545, 45);
         RotA.KoordinatenSetzen(865, 535);
@@ -68,8 +93,24 @@ public class Brett
     
     public static Feld gibFeld(int i)
     {
-        System.out.println("FELD " + Felder[i].FeldnummerGeben() + " ZURÜCK GEGEBEN");
         return Felder[i];
+    }
+    
+    public static Feld[] gibHausfeld(farbenum f)
+    {
+        switch(f)
+        {
+            case Gelb:
+                return HausGelb;
+            case Grün:
+                return HausGruen;
+            case Schwarz:
+                return HausSchwarz;
+            case Rot:
+                return HausRot;
+                   
+        }
+        return null;
     }
     
     public static Feld gibStartfeld(farbenum f)
@@ -127,5 +168,21 @@ public class Brett
                 return RotA;
         }
         return null;
+    }
+    
+    public static int gibHausEingang(farbenum f)
+    {
+        switch(f)
+        {
+            case Gelb:
+                return 29;
+            case Grün:
+                return 39;
+            case Schwarz:
+                return 19;
+            case Rot:
+                return 9;
+        }
+        return 0;
     }
 }

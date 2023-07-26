@@ -42,6 +42,8 @@ public class reihenfolgeUI extends UI implements ActionListener
         frame.add(KnopfSc);
         frame.add(KnopfRo);
         frame.add(label1);
+        
+        super.resetsize(600, 600);
     }
     
     public void actionPerformed (ActionEvent ae)

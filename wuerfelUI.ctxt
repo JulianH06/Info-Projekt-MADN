@@ -6,4 +6,6 @@ comment2.params=ae
 comment2.target=void\ actionPerformed(java.awt.event.ActionEvent)
 comment3.params=
 comment3.target=boolean\ gewuerfelt()
-numComments=4
+comment4.params=wUI
+comment4.target=void\ alteswUIsetzen(wuerfelUI)
+numComments=5

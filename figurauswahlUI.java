@@ -40,6 +40,8 @@ public class figurauswahlUI extends UI implements ActionListener, MouseListener
         KnopfArr[3].setBounds(325, 325, 200, 200);
         
         frame.add(label1);
+        
+        //super.resetsize(600, 600);
     }
     
     public void actionPerformed (ActionEvent ae)
@@ -166,6 +168,11 @@ public class figurauswahlUI extends UI implements ActionListener, MouseListener
             try{GameManager.unhighlightFigur(3);}catch (java.io.IOException ioe)
             {ioe.printStackTrace();} 
         }
+    }
+    
+    public JFrame gibFrame()
+    {
+        return frame;
     }
     
     public boolean gewaehlt()
