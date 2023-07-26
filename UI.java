@@ -41,6 +41,12 @@ public class UI
         //Fehler behoben 
     }
     
+    public void resetsize(int w, int h)
+    {
+        frame.setSize(w+1, h+1);
+        frame.setSize(w, h);
+    }
+    
     public void close()
     {
         frame.setVisible(false);

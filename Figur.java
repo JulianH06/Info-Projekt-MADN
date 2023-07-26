@@ -5,13 +5,17 @@ public class Figur
     private farbenum farbe;
     private int figurnummer;
     private boolean inStart = true;
-    private posenum postyp;
+    private boolean inHaus = false;
+    private int positionImHaus = 111;
+    //private posenum postyp;
+    boolean abzweigungAufStrecke = false;
     
     public Figur(farbenum f)
     {
+        farbe = f;
         startfeld = Brett.gibStartfeld(f);
         position = startfeld;
-        postyp = posenum.Start;
+        //postyp = posenum.Start;
     }
     
     //Mechanik zum Verlassen des Startfeldes fehlt
@@ -22,9 +26,16 @@ public class Figur
         inStart = false;
     }
     
+    public Feld gibPosition()
+    {
+        return position;
+    }
+    
     public void reset()
     {
-        position = Brett.gibStartfeld(farbe);
+        position = startfeld;
+        inStart = true;
+        GameManager.gibBrettUI().ziehFigur(startfeld, farbe, this);
     }
     
     public boolean insHausZiehen(int i)
@@ -35,38 +46,107 @@ public class Figur
     
     public Feld ziehen(int i)
     {
-        System.out.println(position.gibX() + " " + position.gibY());
-        if(!inStart)
+        int e = Brett.gibHausEingang(farbe);
+        //if(position = 
+        //System.out.println(position.gibX() + " " + position.gibY());
+        int p = position.FeldnummerGeben()+i;
+        System.out.println("p ist " + p);
+        System.out.println("e ist " + e);
+        System.out.println("position ist " + position.FeldnummerGeben());
+        
+        if(inStart)
         {
-            int p = position.FeldnummerGeben()+i;
-            if(p>39)
+            return Brett.gibFeld(p);
+        }
+        if(inHaus)
+        {
+            System.out.println("IM HAUS");
+        }
+        if(position.FeldnummerGeben() != e)
+        {
+            int k = 0;
+            for(int j = position.FeldnummerGeben(); j <= p; j++)
             {
-                p = p - 40;
-            } 
-            // /* 
-            // if(position.FeldnummerGeben()<Feld.AbzweigungGeben(farbe)/*.FeldnummerGeben()*/ && p>Feld.AbzweigungGeben(farbe)/*.FeldnummerGeben()*/) //wenn pos vor < Abzweigung und pos nach > Abzweigung
-            // /*{
-                // return null;//insHausZiehen(p-Feld.AbzweigungGeben(farbe).FeldnummerGeben());
-            // }
-            // else if(p<i && Feld.AbzweigungGeben(farbe)/*.FeldnummerGeben()*/>position.FeldnummerGeben())                                                                 //
-            // /*{
-                // return null;//insHausZiehen(39-Feld.AbzweigungGeben(farbe).FeldnummerGeben()+p);
-            // }
-            // else if(p<i && Feld.AbzweigungGeben(farbe)/*.FeldnummerGeben()*/<position.FeldnummerGeben())                                                                        //
-            // /*{
-                // return null;//insHausZiehen(p-Feld.AbzweigungGeben(farbe).FeldnummerGeben());
-            // }*/
-            
-            //else                                                                                                                            //
-            //{
-                return Brett.gibFeld(p);
-            //} 
+                if(j == e)
+                {
+                    System.out.println("abzweigungAufStrecke");
+                    abzweigungAufStrecke = true;
+                    k = p - e;
+                    
+                    System.out.println(k);
+                    if(k > 0 && k <= 4)
+                    {
+                        System.out.println("k >= 0 && k <= 4 IN HAUS IST TRUE");
+                        inHaus = true;
+                        positionImHaus = k-1;
+                        return Brett.gibHausfeld(farbe)[k-1];
+                    }
+                    return Brett.gibFeld(e);
+                }
+            }
+        }
+        else if(position.FeldnummerGeben() == e)
+        {
+            if(i >= 0 && i <= 4)
+            {
+                System.out.println("i >= 0 && i <= 4 IN HAUS IST TRUE");
+                inHaus = true;
+                positionImHaus = i;
+                return Brett.gibHausfeld(farbe)[i-1];
+            }
+            else
+            {
+                return Brett.gibFeld(e);
+            }
         }
         else
         {
-                   
+            return Brett.gibFeld(e);
         }
-        return null;
+        
+        /*if(abzweigungAufStrecke)
+        {
+            for(int j = position.FeldnummerGeben(); j < p; j++)
+            {
+                if(j == p)
+                {
+                    abzweigungAufStrecke = true;
+                }
+            }
+        }
+        else
+        {
+            return Brett.gibFeld(p);
+        }*/
+        // /* 
+        // if(position.FeldnummerGeben()<Feld.AbzweigungGeben(farbe)/*.FeldnummerGeben()*/ && p>Feld.AbzweigungGeben(farbe)/*.FeldnummerGeben()*/) //wenn pos vor < Abzweigung und pos nach > Abzweigung
+        // /*{
+            // return null;//insHausZiehen(p-Feld.AbzweigungGeben(farbe).FeldnummerGeben());
+        // }
+        // else if(p<i && Feld.AbzweigungGeben(farbe)/*.FeldnummerGeben()*/>position.FeldnummerGeben())                                                                 //
+        // /*{
+            // return null;//insHausZiehen(39-Feld.AbzweigungGeben(farbe).FeldnummerGeben()+p);
+        // }
+        // else if(p<i && Feld.AbzweigungGeben(farbe)/*.FeldnummerGeben()*/<position.FeldnummerGeben())                                                                        //
+        // /*{
+            // return null;//insHausZiehen(p-Feld.AbzweigungGeben(farbe).FeldnummerGeben());
+        // }*/
+        
+        if(p>39)
+        {
+            p = p - 40;
+        } 
+        //else                                                                                                                            //
+        //{
+            
+        //} 
+        return Brett.gibFeld(p);
+    }
+    
+    public Feld ziehen(int i, Feld f)
+    {
+        position = f;
+        return ziehen(i);
     }
     
     public farbenum gibFarbe()
@@ -76,12 +156,37 @@ public class Figur
     
     public posenum gibPosTyp()
     {
-        return postyp;
+        return null;//postyp;
     }
     
     public void startVerlassen()
     {
-        postyp = posenum.Normal;
+        //postyp = posenum.Normal;
         inStart = false;
+    }
+    
+    public boolean inStart()
+    {
+        return inStart;
+    }
+    
+    public boolean inHaus()
+    {
+        return inHaus;
+    }
+    
+    public int gibPosImHaus()
+    {
+        return positionImHaus;
+    }
+    
+    public void posImHausSetzen(int i)
+    {
+        i = positionImHaus;
+    }
+    
+    public boolean gibAbzweigungImHaus()
+    {
+        return abzweigungAufStrecke;
     }
 }

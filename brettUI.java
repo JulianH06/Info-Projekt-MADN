@@ -46,7 +46,7 @@ public class brettUI extends UI
             f15b18[i] = GameManager.gibBrett().gibFeld(i+15);
             f15b18[i].KoordinatenSetzen(545, 465 + 150 + (80*i));
             f21b24[i] = GameManager.gibBrett().gibFeld(i+21);
-            f21b24[i].KoordinatenSetzen(380, 860 + 80*(i+1));
+            f21b24[i].KoordinatenSetzen(380, 860 - 80*(i+1));
             f25b28[i] = GameManager.gibBrett().gibFeld(i+25);
             f25b28[i].KoordinatenSetzen(380 - 80*(i+1),535);
             f31b34[i] = GameManager.gibBrett().gibFeld(i+31);
@@ -98,7 +98,7 @@ public class brettUI extends UI
         figurenGe[1].setBounds(135, 50, 60, 60);
         figurenGe[2].setBounds(55, 130, 60, 60);
         figurenGe[3].setBounds(135, 130, 60, 60);
-        //figurenGe[0].setLocation(600,600);
+        //figurenGe[0].setLocation(57+80*4, 370 + 80);
         
         figurenGr[0].setBounds(55 + 735, 50, 60, 60);
         figurenGr[1].setBounds(135 + 735, 50, 60, 60);
@@ -141,7 +141,7 @@ public class brettUI extends UI
     
     public void ziehFigur(Feld f, farbenum fe, int figurnr)
     {
-        System.out.println(fe + " zieht auf" + f.gibX()+ ", " + f.gibY());
+        //System.out.println(fe + " zieht auf" + f.gibX()+ ", " + f.gibY());
         gibLabelArr(fe)[figurnr].setLocation(f.gibX(), f.gibY());
         frame.repaint();
     }
@@ -151,7 +151,7 @@ public class brettUI extends UI
         Spieler figuren = GameManager.gibSpieler(fe);
         for(int i = 0; i < 4; i ++)
         {
-            if(Spieler.gibFigur(i) == figur)
+            if(GameManager.gibSpieler(fe).gibFigur(i) == figur)
             {
                 ziehFigur(f, fe, i);
             }

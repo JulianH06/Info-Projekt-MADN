@@ -12,6 +12,7 @@ public class GameManager
     private static Brett Brett;
     private static Spieler[] Spieler;
     private static Wuerfel w1;
+    private static Wuerfel w2;
     private static brettUI brettUI;
     private static int aktuellesErgebnis;
     private static farbenum aktuellerSpieler;
@@ -44,6 +45,7 @@ public class GameManager
     public static int Wuerfeln()
     {
         return w1.wuerfeln();
+        //return 6;
     }
     
     public synchronized int ButtonWuerfel() throws InterruptedException,java.io.IOException
@@ -54,6 +56,23 @@ public class GameManager
             wait();   
         }
         return aktuellesErgebnis;
+    }
+    
+    public int zweitwuerfeln() throws java.io.IOException,InterruptedException
+    {
+        w2 = w1;
+        //w1.wUIgeben().close();
+        Spieler[aktuellerSpieler.ordinal()].zweiMalGewuerfelt();
+        return ButtonWuerfel();
+    }
+    
+    public int drittwuerfeln() throws java.io.IOException,InterruptedException
+    {
+        w2 = w1;
+        notify();
+        //w1.wUIgeben().close();
+        Spieler[aktuellerSpieler.ordinal()].dreiMalGewuerfelt();
+        return ButtonWuerfel();
     }
     
     public synchronized int ButtonFigur(farbenum f) throws InterruptedException,java.io.IOException
@@ -124,6 +143,11 @@ public class GameManager
         return brettUI;
     }
     
+    public static Wuerfel gibw1()
+    {
+        return w1;
+    }
+    
     public static void beginnendenSpielerSetzen(farbenum i)
     {
         beginnenderSpieler = i;
@@ -172,5 +196,13 @@ public class GameManager
         w1.wUIgeben().close();
         aktuellerSpieler = gibNaechsteFarbe(aktuellerSpieler.ordinal());
         Spieler[aktuellerSpieler.ordinal()].spielzug();
+    }
+    
+    public static void closeW2()
+    {
+        if(w2 != null)
+        {
+            w2.wUIgeben().close();
+        }
     }
 }

@@ -15,10 +15,11 @@ public class wuerfelUI extends UI implements ActionListener
     JLabel label1;
     private boolean gewuerfelt = false;
     private Timer timer;
+    private wuerfelUI alteswUI;
     
     public wuerfelUI() throws java.io.IOException 
     {
-        super(600, 700, 1100, 200);
+        super(600, 700, 1100, 300);
         
         label1 = new JLabel(GameManager.gibAktuellerSpieler() + " Würfelt...");
         label1.setHorizontalAlignment(JLabel.CENTER);
@@ -44,6 +45,8 @@ public class wuerfelUI extends UI implements ActionListener
         
         frame.add(Knopf);
         frame.add(label1);
+        
+        super.resetsize(600, 700);
     }
 
     public void actionPerformed (ActionEvent ae)
@@ -64,6 +67,7 @@ public class wuerfelUI extends UI implements ActionListener
             Knopf.setBounds(17,5, 250, 250);
             frame.setSize(300, 300);
             frame.setTitle("Ergebnis");
+            GameManager.closeW2();
             
             GameManager.Instance.notifyGM();
             GameManager.ergebnisSetzen(erg);
@@ -72,10 +76,20 @@ public class wuerfelUI extends UI implements ActionListener
             
             frame.repaint();
         }
+        else
+        {
+            GameManager.gibSpieler(GameManager.gibAktuellerSpieler())
+            .gibfUI().gibFrame().show();
+        }
     }
     
     public boolean gewuerfelt()
     {
         return gewuerfelt;
+    }
+    
+    public void alteswUIsetzen(wuerfelUI wUI)
+    {
+        alteswUI = wUI;
     }
 }
